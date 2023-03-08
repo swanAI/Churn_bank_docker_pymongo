@@ -1,0 +1,45 @@
+
+
+version: '3'
+services:
+
+  jupyter:
+    build: ./jupyter-notebook
+    container_name: 'jupyter'
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    ports:
+      - 8888:8888
+    environment:
+      JUPYTER_ENABLE_LAB: 'yes'
+      JUPYTER_TOKEN: token_password_jupyter
+    command: [start-notebook.sh, "--NotebookApp.token='token_password_jupyter'"]
+
+    links:
+      - mongo
+
+  
+  mongo-express:
+    image: mongo-express
+    container_name: 'mongoadmin'
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mot_de_passe_MONGODB
+      ME_CONFIG_BASICAUTH_USERNAME: USERNAME
+      ME_CONFIG_BASICAUTH_PASSWORD: PASSWORD
+    
+    links:
+      - mongo
+
+  
+  mongo:
+    image: mongo
+    container_name: 'mongo'
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodata:
