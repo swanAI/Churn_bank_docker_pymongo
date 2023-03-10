@@ -1,2 +1,2 @@
 # Churn_bank_docker_pymongo
-Administrer une MongoDB conteneurisée et analyser l'attrition du jeu de données pour le client de la banque
+Effectuer la gestion d'une base de données MongoDB en conteneur. Ensuite, procéder à l'analyse de l'attrition des données et à la prédiction de l'attrition des clients pour une banque.
