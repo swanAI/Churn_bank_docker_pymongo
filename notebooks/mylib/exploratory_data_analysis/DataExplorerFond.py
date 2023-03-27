@@ -83,3 +83,13 @@ class DataExplorerFond:
         pct_dataset = pct_dataset.rename(columns={0:'Pct_NaN_colonne'})
         pct_dataset = pct_dataset.style.background_gradient(cmap='YlOrRd')
         return
+
+    def __repr__(self):
+        """
+        Renvoie une représentation sous forme de chaîne des variables d'instance de l'objet.
+
+        Retour:
+        str : représentation sous forme de chaîne des variables d'instance de l'objet.
+        """
+        
+        return str(self.__dict__)

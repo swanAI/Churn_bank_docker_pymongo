@@ -49,7 +49,8 @@ class MyTSNE:
             Trace un graphe en deux dimensions des données réduites par t-SNE.
     """
     def __init__(self, data: pd.DataFrame, n_components: int = 2, perplexity: int = 30, learning_rate: int = 200, random_state: Optional[int] = None) -> None:
-        self.names = data.index
+        self.data = data 
+        self.names = self.data.index
         self.n_components = n_components
         self.perplexity = perplexity
         self.learning_rate = learning_rate

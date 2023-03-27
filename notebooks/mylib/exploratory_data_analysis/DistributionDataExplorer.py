@@ -73,3 +73,13 @@ class DistributionDataExplorer:
 
 
         plt.show()
+
+    def __repr__(self):
+        """
+        Renvoie une représentation sous forme de chaîne des variables d'instance de l'objet.
+
+        Retour:
+        str : représentation sous forme de chaîne des variables d'instance de l'objet.
+        """
+        
+        return str(self.__dict__)

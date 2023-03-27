@@ -49,8 +49,16 @@ class PipelineBaselineOneMetric:
         df_results_cv = pd.DataFrame()
         df_name_model = pd.DataFrame()
         for pipe_name, pipeline in self.pipelines.items():
+            thickness = 6  # épaisseur du trait
+            length = 40    # longueur de la ligne
+
+            # Impression de la ligne d'étoiles
+            stars = '*' * length + '-'
+            line = stars.join([''] * (thickness + 1))
+            print(colored(line, 'green'))
             print(colored(pipe_name.upper(), 'red'))
-            display(pipeline)
+            
+            #display(pipeline)
             print()
         
             #Cross validation multi metrics select model
@@ -144,8 +152,14 @@ class PipelineBaselineOneMetric:
             print()
             
     def __repr__(self):
-        return str(self.__dict__)
-           
+        """
+        Renvoie une représentation sous forme de chaîne des variables d'instance de l'objet.
+
+        Retour:
+        str : représentation sous forme de chaîne des variables d'instance de l'objet.
+        """
         
+        return str(self.__dict__)
+  
            
            
