@@ -26,11 +26,38 @@ services:
             - deploy_network
         container_name: streamlit
 
+    prometheus:
+        image: prom/prometheus
+        volumes:
+            - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+        ports:
+            - "9090:9090"
+        networks:
+            - deploy_network
+
+   
+    
+    grafana:
+        build:
+            context: ./grafana
+            dockerfile: Dockerfile
+        volumes:
+            - grafana-storage:/var/lib/grafana
+        environment:
+            - GF_SECURITY_ADMIN_USER=<Mettre nom User> # Mettre nom User pour Ui Grafana
+            - GF_SECURITY_ADMIN_PASSWORD=<Mettre password> # Mettre password User pour Ui Grafana
+            - GF_AUTH_TOKEN=<Mettre token accés Ui Grafana > # Mettre token accés Ui Grafana 
+            - GF_AUTH_ANONYMOUS_ENABLED=false
+            - GF_INSTALL_PLUGINS=grafana-piechart-panel
+        ports:
+            - "3000:3000"
+        depends_on:
+            - prometheus
+        networks:
+            - deploy_network
 networks:
     deploy_network:
         driver: bridge
 
-
-
-
-
+volumes:
+  grafana-storage:
