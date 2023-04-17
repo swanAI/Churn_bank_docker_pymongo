@@ -10,10 +10,10 @@ Enfin, un système de surveillance et de collecte de métriques de performance d
 # Déploiement du modèle sur cloud provider AWS avec instance EC2
 
 Le lien pour accéder à l’application streamlit
-http://ec2-100-26-186-129.compute-1.amazonaws.com:8501/
+http://ec2-3-84-195-206.compute-1.amazonaws.com:8501
 
 Le lien pour accéder à FastAPi 
-http://ec2-100-26-186-129.compute-1.amazonaws.com:8008/docs#/default/fonction_predict_LGBM_predict__id__get
+http://ec2-3-84-195-206.compute-1.amazonaws.com:8008/docs
 
 
 
